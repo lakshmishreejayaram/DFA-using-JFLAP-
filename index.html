@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DFA Simulator | Automata Lab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">◈ Automata Lab</div>
+    <span class="tag">FINITE AUTOMATA</span>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="eyebrow">THEORY OF COMPUTATION</p>
+      <h1>DFA Simulator</h1>
+      <p class="subtitle">
+        Explore deterministic finite automata. Enter a string,
+        trace its transitions, and see whether it is accepted.
+      </p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <div>
+          <h2>Language Definition</h2>
+          <p>Strings over the alphabet {a, b}</p>
+        </div>
+        <span class="status">DFA · 5 states</span>
+      </div>
+
+      <div class="definition">
+        <span>Acceptance condition</span>
+        <strong>String length is divisible by 5</strong>
+        <code>L = { w ∈ {a,b}* : |w| mod 5 = 0 }</code>
+      </div>
+
+      <h2 class="section-title">State Diagram</h2>
+      <p class="hint">Each input symbol moves the DFA to the next state.</p>
+
+      <div class="diagram-wrap">
+        <svg id="diagram" viewBox="0 0 620 250"
+             role="img" aria-label="DFA state transition diagram"></svg>
+      </div>
+
+      <div class="legend">
+        <span><i class="dot start"></i> Start state</span>
+        <span><i class="dot accept"></i> Accepting state</span>
+        <span><i class="dot normal"></i> Other states</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Test Your Input</h2>
+      <p class="hint">Use only a and b. Try a string of length 5.</p>
+
+      <form id="test-form">
+        <label for="user-input">Input string</label>
+        <div class="input-row">
+          <input id="user-input" type="text"
+                 placeholder="e.g. ababa" autocomplete="off"
+                 spellcheck="false">
+          <button type="submit">Simulate DFA →</button>
+        </div>
+      </form>
+
+      <div class="examples">
+        <span>Try an example:</span>
+        <button type="button" class="sample" data-value="ababa">ababa</button>
+        <button type="button" class="sample" data-value="aaaaa">aaaaa</button>
+        <button type="button" class="sample" data-value="aba">aba</button>
+        <button type="button" class="sample" data-value="">ε (empty)</button>
+      </div>
+
+      <div id="result" class="result" aria-live="polite">
+        Enter a string and click Simulate DFA.
+      </div>
+
+      <div id="trace-section" hidden>
+        <h3>Transition Trace</h3>
+        <div id="trace" class="trace"></div>
+        <p id="final-state" class="final-state"></p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Transition Table</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Current state</th><th>Input a</th><th>Input b</th><th>Final?</th></tr>
+          </thead>
+          <tbody id="transition-table"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <p>Automata Lab · Built with HTML, CSS and JavaScript</p>
+      <p>Deterministic Finite Automaton · Educational project</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
